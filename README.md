@@ -1,6 +1,8 @@
 # SALARY-VS-EXPERIENCE
 This project will predict the salary of an employee with the help of experience after applying regression model based on the dataset collected from kaggle.
 
+***Accuracy of this machine learning model is 93.81%.***
+
 ***Cor-relation Graph***
 
 ![picture alt](https://github.com/aayushjn2/SALARY-VS-EXPERIENCE/blob/master/CorrelationGraphs.png)
