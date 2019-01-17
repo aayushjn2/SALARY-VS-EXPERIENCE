@@ -1,18 +1,25 @@
-# Simple Linear Regression
-
 # Importing the libraries
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sb
+
 # Importing the dataset
 dataset = pd.read_csv('Salary_Data.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 1].values
 
 #printing cor-realtion graph
-sb.pairplot(dataset)
-#print cor-realtion matrix 
+"""
+    sb.pairplot(dataset)
+
+"""
+#Check  NUll values
+print("Total Number of Null Values are ")
+print( dataset.isnull().sum())
+
+#check out correlation between predictors and predictant
+print("\nCor-relation matrix is \n")
 print(dataset.corr())
 # X is a matrix vector and y is a vector
 # Splitting the dataset into the Training set and Test set
@@ -20,13 +27,6 @@ print(dataset.corr())
 from sklearn.cross_validation import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 1/3, random_state = 0)
 
-# Feature Scaling
-"""from sklearn.preprocessing import StandardScaler
-sc_X = StandardScaler()
-X_train = sc_X.fit_transform(X_train)
-X_test = sc_X.transform(X_test)
-sc_y = StandardScaler()
-y_train = sc_y.fit_transform(y_train)"""
 
 # Fitting Simple Linear Regression to the Training set
 from sklearn.linear_model import LinearRegression
@@ -53,4 +53,12 @@ plt.ylabel('Salary')
 plt.show()
 
 accuracy = regressor.score(X_train,y_train)
-print("Accuracy of linear regression model is ",100*accuracy)
+print("Accuracy of our model is ",100*accuracy)
+counter =1
+while counter:
+    print("Enter your experience (in years) ")
+    exp = int(input())
+    print("Your Salary is ",regressor.predict(exp))
+    print("Enter 0 to exit and 1 for continue ")
+    counter = int(input())
+
